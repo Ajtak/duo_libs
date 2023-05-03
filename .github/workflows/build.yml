@@ -23,7 +23,8 @@ jobs:
           repository: duosecurity/duo_client_java
           path: duo_client_java
           ref: 0.5.0
-      - run: rm -rf duo_client_java/.git
+      - run: rm -rf duo_client_java/.git && ls -al duo_client_java/
+
 
       - name: Push
         uses: s0/git-publish-subdir-action@develop
