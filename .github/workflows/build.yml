@@ -3,14 +3,14 @@ name: build-client
 on:
   push:
     branches:
-      - 'master'
+      - 'main'
   pull_request:
   workflow_dispatch:
 
 jobs:
 
-  basic-ubuntu-20-v9:
-    runs-on: ubuntu-20.04
+  ubuntu:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -23,4 +23,8 @@ jobs:
           repository: duosecurity/duo_client_java
           path: duo_client_java
           ref: 0.5.0
+
+      - run: ls -al .
+
+      
 
