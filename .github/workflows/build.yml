@@ -1,12 +1,26 @@
-- name: Checkout
-  uses: actions/checkout@v3
-  with:
-    path: main
+name: build-client
+# This workflow represents a set of basic End-to-End tests
+on:
+  push:
+    branches:
+      - 'master'
+  pull_request:
+  workflow_dispatch:
 
-- name: Checkout tools repo
-  uses: actions/checkout@v3
-  with:
-    repository: duosecurity/duo_client_java
-    path: duo_client_java
-    ref: 0.5.0
+jobs:
+
+  basic-ubuntu-20-v9:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          path: main
+
+      - name: Checkout tools repo
+        uses: actions/checkout@v3
+        with:
+          repository: duosecurity/duo_client_java
+          path: duo_client_java
+          ref: 0.5.0
 
